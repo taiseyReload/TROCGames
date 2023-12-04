@@ -58,6 +58,7 @@
             this.DgvJogosXbox.Size = new System.Drawing.Size(390, 304);
             this.DgvJogosXbox.TabIndex = 13;
             this.DgvJogosXbox.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvJogosXbox_CellClick);
+            this.DgvJogosXbox.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvJogosXbox_CellContentClick);
             // 
             // LblTituloXbox
             // 
@@ -168,6 +169,7 @@
             this.btnIrCarrinho.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btnIrCarrinho.TabIndex = 28;
             this.btnIrCarrinho.TabStop = false;
+            this.btnIrCarrinho.Click += new System.EventHandler(this.btnIrCarrinho_Click);
             // 
             // BtnXboxIcon
             // 
@@ -209,6 +211,7 @@
             this.Name = "Xbox";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Xbox";
+            this.Activated += new System.EventHandler(this.Xbox_Activated);
             this.Load += new System.EventHandler(this.Xbox_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DgvJogosXbox)).EndInit();
             this.GrbCarrinhoXbox.ResumeLayout(false);

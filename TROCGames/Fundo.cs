@@ -19,7 +19,7 @@ namespace TROCGames
         private void Fundo_Activated(object sender, EventArgs e)
         {
             //INSTANCIAR A JANELA DE LOGIN
-            Login janela = new Login();
+            TelaInicial janela = new TelaInicial();
             //MOSTRAR JANELA 
             janela.ShowDialog();
             //FECHAR TUDO AO FECHAR A LOGIN

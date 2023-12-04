@@ -35,13 +35,15 @@
             this.BtnAdicionarCarrinho = new System.Windows.Forms.Button();
             this.BtnPagarPlaystation = new System.Windows.Forms.Button();
             this.LblTituloPlaystation = new System.Windows.Forms.Label();
-            this.BtnPlaystation = new System.Windows.Forms.PictureBox();
-            this.BtnExitPlaystation = new System.Windows.Forms.PictureBox();
             this.lblNItens = new System.Windows.Forms.Label();
             this.lblQtdCarrinho = new System.Windows.Forms.Label();
+            this.btnIrCarrinho = new System.Windows.Forms.PictureBox();
+            this.BtnPlaystation = new System.Windows.Forms.PictureBox();
+            this.BtnExitPlaystation = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.DgvJogosPlaystation)).BeginInit();
             this.GrbCategoriaPlaystation.SuspendLayout();
             this.GrbCarrinhoPlaystation.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnIrCarrinho)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BtnPlaystation)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BtnExitPlaystation)).BeginInit();
             this.SuspendLayout();
@@ -138,6 +140,42 @@
             this.LblTituloPlaystation.TabIndex = 4;
             this.LblTituloPlaystation.Text = "PlayStation";
             // 
+            // lblNItens
+            // 
+            this.lblNItens.AutoSize = true;
+            this.lblNItens.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblNItens.Font = new System.Drawing.Font("Microsoft Tai Le", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNItens.ForeColor = System.Drawing.Color.DeepSkyBlue;
+            this.lblNItens.Location = new System.Drawing.Point(142, 606);
+            this.lblNItens.Name = "lblNItens";
+            this.lblNItens.Size = new System.Drawing.Size(210, 23);
+            this.lblNItens.TabIndex = 12;
+            this.lblNItens.Text = "Produtos no Carrinho:";
+            // 
+            // lblQtdCarrinho
+            // 
+            this.lblQtdCarrinho.AutoSize = true;
+            this.lblQtdCarrinho.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblQtdCarrinho.Font = new System.Drawing.Font("Microsoft Tai Le", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblQtdCarrinho.ForeColor = System.Drawing.Color.DeepSkyBlue;
+            this.lblQtdCarrinho.Location = new System.Drawing.Point(352, 606);
+            this.lblQtdCarrinho.Name = "lblQtdCarrinho";
+            this.lblQtdCarrinho.Size = new System.Drawing.Size(21, 23);
+            this.lblQtdCarrinho.TabIndex = 13;
+            this.lblQtdCarrinho.Text = "0";
+            this.lblQtdCarrinho.Click += new System.EventHandler(this.lblQtdCarrinho_Click);
+            // 
+            // btnIrCarrinho
+            // 
+            this.btnIrCarrinho.Image = global::TROCGames.Properties.Resources.Playstation;
+            this.btnIrCarrinho.Location = new System.Drawing.Point(0, 6);
+            this.btnIrCarrinho.Name = "btnIrCarrinho";
+            this.btnIrCarrinho.Size = new System.Drawing.Size(71, 55);
+            this.btnIrCarrinho.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnIrCarrinho.TabIndex = 14;
+            this.btnIrCarrinho.TabStop = false;
+            this.btnIrCarrinho.Click += new System.EventHandler(this.btnIrCarrinho_Click);
+            // 
             // BtnPlaystation
             // 
             this.BtnPlaystation.Image = global::TROCGames.Properties.Resources.Prancheta_12;
@@ -159,37 +197,13 @@
             this.BtnExitPlaystation.TabStop = false;
             this.BtnExitPlaystation.Click += new System.EventHandler(this.BtnExitPlaystation_Click);
             // 
-            // lblNItens
-            // 
-            this.lblNItens.AutoSize = true;
-            this.lblNItens.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblNItens.Font = new System.Drawing.Font("Microsoft Tai Le", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNItens.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.lblNItens.Location = new System.Drawing.Point(230, 606);
-            this.lblNItens.Name = "lblNItens";
-            this.lblNItens.Size = new System.Drawing.Size(210, 23);
-            this.lblNItens.TabIndex = 12;
-            this.lblNItens.Text = "Produtos no Carrinho:";
-            // 
-            // lblQtdCarrinho
-            // 
-            this.lblQtdCarrinho.AutoSize = true;
-            this.lblQtdCarrinho.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblQtdCarrinho.Font = new System.Drawing.Font("Microsoft Tai Le", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblQtdCarrinho.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.lblQtdCarrinho.Location = new System.Drawing.Point(440, 606);
-            this.lblQtdCarrinho.Name = "lblQtdCarrinho";
-            this.lblQtdCarrinho.Size = new System.Drawing.Size(21, 23);
-            this.lblQtdCarrinho.TabIndex = 13;
-            this.lblQtdCarrinho.Text = "0";
-            this.lblQtdCarrinho.Click += new System.EventHandler(this.lblQtdCarrinho_Click);
-            // 
             // Playstation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(507, 638);
+            this.Controls.Add(this.btnIrCarrinho);
             this.Controls.Add(this.lblQtdCarrinho);
             this.Controls.Add(this.lblNItens);
             this.Controls.Add(this.DgvJogosPlaystation);
@@ -202,10 +216,12 @@
             this.Name = "Playstation";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SS";
+            this.Activated += new System.EventHandler(this.Playstation_Activated);
             this.Load += new System.EventHandler(this.Playstation_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DgvJogosPlaystation)).EndInit();
             this.GrbCategoriaPlaystation.ResumeLayout(false);
             this.GrbCarrinhoPlaystation.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.btnIrCarrinho)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BtnPlaystation)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BtnExitPlaystation)).EndInit();
             this.ResumeLayout(false);
@@ -226,5 +242,6 @@
         private System.Windows.Forms.Button BtnAdicionarCarrinho;
         private System.Windows.Forms.Label lblNItens;
         private System.Windows.Forms.Label lblQtdCarrinho;
+        private System.Windows.Forms.PictureBox btnIrCarrinho;
     }
 }

@@ -84,6 +84,16 @@ namespace TROCGames.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Carrinho_final {
+            get {
+                object obj = ResourceManager.GetObject("Carrinho final", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap dddb92_e4e8b560_016f_4091_ae3d_c12046b11f8a {
             get {
                 object obj = ResourceManager.GetObject("dddb92-e4e8b560-016f-4091-ae3d-c12046b11f8a", resourceCulture);
@@ -114,9 +124,29 @@ namespace TROCGames.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Nintendo {
+            get {
+                object obj = ResourceManager.GetObject("Nintendo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap nintendo_logo_1_1__1_ {
             get {
                 object obj = ResourceManager.GetObject("nintendo-logo-1-1 (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Playstation {
+            get {
+                object obj = ResourceManager.GetObject("Playstation", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

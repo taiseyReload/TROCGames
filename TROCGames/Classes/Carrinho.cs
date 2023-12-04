@@ -19,11 +19,26 @@ namespace TROCGames.Classes
 
         public DataTable ListarCarrinho()
         {
-            string comando = "SELECT carrinho.id, carrinho.id_ficha, carrinho.quantidade, produtos.nome  AS " +
-                "'Produto', produtos.preco FROM carrinho INNER JOIN produtos ON produtos.id = carrinho.id_produtos;";
+            string comando = "SELECT * FROM view_carrinho";
             Banco.ConexaoBanco conexaoBD = new Banco.ConexaoBanco();
             MySqlConnection con = conexaoBD.ObterConexao();
             MySqlCommand cmd = new MySqlCommand(comando, con);
+            cmd.Prepare();
+            // Declarar tabela que irá receber o resultado:
+            DataTable tabela = new DataTable();
+            // Preencher a tabela com o resultado da consulta:
+            tabela.Load(cmd.ExecuteReader());
+            conexaoBD.Desconectar(con);
+            return tabela;
+        }
+
+        public DataTable ListarCarrinhoID_Ficha()
+        {
+            string comando = "SELECT * FROM `view_carrinho` WHERE id_ficha = @id_ficha";
+            Banco.ConexaoBanco conexaoBD = new Banco.ConexaoBanco();
+            MySqlConnection con = conexaoBD.ObterConexao();
+            MySqlCommand cmd = new MySqlCommand(comando, con);
+            cmd.Parameters.AddWithValue("@id_ficha", IdFicha);
             cmd.Prepare();
             // Declarar tabela que irá receber o resultado:
             DataTable tabela = new DataTable();
@@ -130,7 +145,7 @@ namespace TROCGames.Classes
 
         public bool FecharCompra()
         {
-            string comando = "UPDATE carrinho SET situacao = 0  WHERE id_ficha = @id_ficha AND situacao = 1";
+            string comando = "UPDATE carrinho SET situacao = 0  WHERE situacao = 1";
 
             Banco.ConexaoBanco conexaoBD = new Banco.ConexaoBanco();
             MySqlConnection con = conexaoBD.ObterConexao();

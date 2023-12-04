@@ -15,8 +15,8 @@ namespace TROCGames.Views
     {
         // Atributos globais:
         int idSelecionado = 0;
-        int contador = 0;
         int idFicha = 0;
+        int totalCarrinho = Globals.qtdCarrinho;
         Classes.Produto produto = new Classes.Produto();
         Classes.Carrinho carrinho = new Classes.Carrinho();
         Classes.Categoria categoria = new Classes.Categoria();
@@ -32,10 +32,8 @@ namespace TROCGames.Views
 
             }
             DgvJogosNintendo.DataSource = produto.ListarNintendo();
-
-            // Gerar a ficha do usuário a partir do último id inserido:
-            var f = carrinho.UltimaFicha().Rows[0][0];
-            idFicha = int.Parse(f.ToString());
+            idFicha = Globals.idGlobal;
+            
         }
 
         private void BtnExitNintendo_Click(object sender, EventArgs e)
@@ -56,7 +54,7 @@ namespace TROCGames.Views
             Classes.Carrinho carrinho = new Classes.Carrinho();
             // Adicionar produtos no contador do carrinho:
             BtnAdicionarCarrinho.Enabled = false;
-            contador++;
+            Globals.qtdCarrinho++;
             // Obter a linha clicada:
             int linhaSelecionada = DgvJogosNintendo.CurrentCell.RowIndex;
             // Armazenar os dados da linha seleciona em "linha" (tipo um vetor)
@@ -67,11 +65,11 @@ namespace TROCGames.Views
             carrinho.IdProdutos = (int)linha.Cells[0].Value;
             carrinho.AdicionarProduto();
             // Permitir clicar no carinho apenas se o contador estiver com pelo menos 1 produto:
-            if (contador > 0)
+            if (Globals.qtdCarrinho > 0)
             {
                 BtnPagarNintendo.Enabled = true;
             }
-            lblQtdCarrinho.Text = contador.ToString();
+            lblQtdCarrinho.Text = Globals.qtdCarrinho.ToString();
 
         }
 
@@ -111,6 +109,17 @@ namespace TROCGames.Views
             {
                 DgvJogosNintendo.DataSource = produto.ListarNintendo();
             }
+        }
+
+        private void btnIrCarrinho_Click(object sender, EventArgs e)
+        {
+            Views.Pagamento janela = new Views.Pagamento();
+            janela.Show();
+        }
+
+        private void Nintendo_Activated(object sender, EventArgs e)
+        {
+            lblQtdCarrinho.Text = Globals.qtdCarrinho.ToString();
         }
     }
 }

@@ -16,8 +16,8 @@ namespace TROCGames.View
     {
         // Atributos globais:
         int idSelecionado = 0;
-        int contador = 0;
         int idFicha = 0;
+        int totalCarrinho = Globals.qtdCarrinho;
         Classes.Produto produto = new Classes.Produto();
         Classes.Categoria categoria = new Classes.Categoria();
         Classes.Carrinho carrinho = new Classes.Carrinho();
@@ -33,10 +33,7 @@ namespace TROCGames.View
 
             }
             DgvJogosPlaystation.DataSource = produto.ListarPlaystation();
-
-            // Gerar a ficha do usuário a partir do último id inserido:
-            var f = carrinho.UltimaFicha().Rows[0][0];
-            idFicha = int.Parse(f.ToString());
+            idFicha = Globals.idGlobal;
         }
 
         private void BtnExitPlaystation_Click(object sender, EventArgs e)
@@ -108,7 +105,7 @@ namespace TROCGames.View
             Classes.Carrinho carrinho = new Classes.Carrinho();
             // Adicionar produtos no contador do carrinho:
             BtnAdicionarCarrinho.Enabled = false;
-            contador++;
+            Globals.qtdCarrinho++;
             // Obter a linha clicada:
             int linhaSelecionada = DgvJogosPlaystation.CurrentCell.RowIndex;
             // Armazenar os dados da linha seleciona em "linha" (tipo um vetor)
@@ -119,12 +116,23 @@ namespace TROCGames.View
             carrinho.IdProdutos = (int)linha.Cells[0].Value;
             carrinho.AdicionarProduto();
             // Permitir clicar no carinho apenas se o contador estiver com pelo menos 1 produto:
-            if (contador > 0)
+            if (Globals.qtdCarrinho > 0)
             {
                 BtnPagarPlaystation.Enabled = true;
             }
-            lblQtdCarrinho.Text = contador.ToString();
+            lblQtdCarrinho.Text = Globals.qtdCarrinho.ToString();
 
+        }
+
+        private void btnIrCarrinho_Click(object sender, EventArgs e)
+        {
+            Views.Pagamento janela = new Views.Pagamento();
+            janela.Show();
+        }
+
+        private void Playstation_Activated(object sender, EventArgs e)
+        {
+            lblQtdCarrinho.Text = Globals.qtdCarrinho.ToString();
         }
     }
 }

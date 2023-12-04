@@ -29,18 +29,22 @@
         private void InitializeComponent()
         {
             this.GbEscolha = new System.Windows.Forms.GroupBox();
+            this.LblTitulo = new System.Windows.Forms.Label();
+            this.btnIrCarrinho = new System.Windows.Forms.PictureBox();
+            this.BtnExit = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.BtnNintendo = new System.Windows.Forms.PictureBox();
             this.BtnXbox = new System.Windows.Forms.PictureBox();
             this.BtnPlaystation = new System.Windows.Forms.PictureBox();
-            this.LblTitulo = new System.Windows.Forms.Label();
-            this.BtnExit = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.lblID = new System.Windows.Forms.Label();
+            this.lblNId = new System.Windows.Forms.Label();
             this.GbEscolha.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnIrCarrinho)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BtnExit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BtnNintendo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BtnXbox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BtnPlaystation)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BtnExit)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // GbEscolha
@@ -56,6 +60,49 @@
             this.GbEscolha.TabIndex = 11;
             this.GbEscolha.TabStop = false;
             this.GbEscolha.Text = "Qual plataforma você deseja?";
+            // 
+            // LblTitulo
+            // 
+            this.LblTitulo.AutoSize = true;
+            this.LblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblTitulo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.LblTitulo.Location = new System.Drawing.Point(124, 86);
+            this.LblTitulo.Name = "LblTitulo";
+            this.LblTitulo.Size = new System.Drawing.Size(174, 37);
+            this.LblTitulo.TabIndex = 12;
+            this.LblTitulo.Text = "Bem Vindo";
+            this.LblTitulo.Click += new System.EventHandler(this.LblTitulo_Click);
+            // 
+            // btnIrCarrinho
+            // 
+            this.btnIrCarrinho.Image = global::TROCGames.Properties.Resources.Carrinho_final;
+            this.btnIrCarrinho.Location = new System.Drawing.Point(12, 8);
+            this.btnIrCarrinho.Name = "btnIrCarrinho";
+            this.btnIrCarrinho.Size = new System.Drawing.Size(82, 75);
+            this.btnIrCarrinho.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnIrCarrinho.TabIndex = 19;
+            this.btnIrCarrinho.TabStop = false;
+            this.btnIrCarrinho.Click += new System.EventHandler(this.btnIrCarrinho_Click);
+            // 
+            // BtnExit
+            // 
+            this.BtnExit.Image = global::TROCGames.Properties.Resources.Prancheta_16;
+            this.BtnExit.Location = new System.Drawing.Point(345, -5);
+            this.BtnExit.Name = "BtnExit";
+            this.BtnExit.Size = new System.Drawing.Size(94, 108);
+            this.BtnExit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.BtnExit.TabIndex = 15;
+            this.BtnExit.TabStop = false;
+            this.BtnExit.Click += new System.EventHandler(this.BtnExit_Click);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::TROCGames.Properties.Resources.Prancheta_1__7_;
+            this.pictureBox2.Location = new System.Drawing.Point(127, -5);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(163, 88);
+            this.pictureBox2.TabIndex = 14;
+            this.pictureBox2.TabStop = false;
             // 
             // BtnNintendo
             // 
@@ -89,37 +136,25 @@
             this.BtnPlaystation.TabStop = false;
             this.BtnPlaystation.Click += new System.EventHandler(this.BtnPlaystation_Click);
             // 
-            // LblTitulo
+            // lblID
             // 
-            this.LblTitulo.AutoSize = true;
-            this.LblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblTitulo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.LblTitulo.Location = new System.Drawing.Point(124, 86);
-            this.LblTitulo.Name = "LblTitulo";
-            this.LblTitulo.Size = new System.Drawing.Size(174, 37);
-            this.LblTitulo.TabIndex = 12;
-            this.LblTitulo.Text = "Bem Vindo";
-            this.LblTitulo.Click += new System.EventHandler(this.LblTitulo_Click);
+            this.lblID.AutoSize = true;
+            this.lblID.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblID.Location = new System.Drawing.Point(341, 398);
+            this.lblID.Name = "lblID";
+            this.lblID.Size = new System.Drawing.Size(32, 24);
+            this.lblID.TabIndex = 20;
+            this.lblID.Text = "ID:";
             // 
-            // BtnExit
+            // lblNId
             // 
-            this.BtnExit.Image = global::TROCGames.Properties.Resources.Prancheta_16;
-            this.BtnExit.Location = new System.Drawing.Point(345, -5);
-            this.BtnExit.Name = "BtnExit";
-            this.BtnExit.Size = new System.Drawing.Size(94, 108);
-            this.BtnExit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.BtnExit.TabIndex = 15;
-            this.BtnExit.TabStop = false;
-            this.BtnExit.Click += new System.EventHandler(this.BtnExit_Click);
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::TROCGames.Properties.Resources.Prancheta_1__7_;
-            this.pictureBox2.Location = new System.Drawing.Point(127, -5);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(163, 88);
-            this.pictureBox2.TabIndex = 14;
-            this.pictureBox2.TabStop = false;
+            this.lblNId.AutoSize = true;
+            this.lblNId.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNId.Location = new System.Drawing.Point(369, 399);
+            this.lblNId.Name = "lblNId";
+            this.lblNId.Size = new System.Drawing.Size(20, 24);
+            this.lblNId.TabIndex = 21;
+            this.lblNId.Text = "0";
             // 
             // Login
             // 
@@ -128,6 +163,9 @@
             this.BackColor = System.Drawing.Color.Black;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(433, 441);
+            this.Controls.Add(this.lblNId);
+            this.Controls.Add(this.lblID);
+            this.Controls.Add(this.btnIrCarrinho);
             this.Controls.Add(this.BtnExit);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.LblTitulo);
@@ -139,11 +177,12 @@
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Login_Load);
             this.GbEscolha.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.btnIrCarrinho)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BtnExit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BtnNintendo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BtnXbox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BtnPlaystation)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BtnExit)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -157,6 +196,9 @@
         private System.Windows.Forms.Label LblTitulo;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox BtnExit;
+        private System.Windows.Forms.PictureBox btnIrCarrinho;
+        private System.Windows.Forms.Label lblID;
+        private System.Windows.Forms.Label lblNId;
     }
 }
 

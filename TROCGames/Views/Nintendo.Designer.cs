@@ -34,13 +34,15 @@
             this.BtnPagarNintendo = new System.Windows.Forms.Button();
             this.GrbCategoriaNintendo = new System.Windows.Forms.GroupBox();
             this.CmbCategoriaNintendo = new System.Windows.Forms.ComboBox();
-            this.BtnNintendoIcon = new System.Windows.Forms.PictureBox();
-            this.BtnExitNintendo = new System.Windows.Forms.PictureBox();
             this.lblQtdCarrinho = new System.Windows.Forms.Label();
             this.lblNItens = new System.Windows.Forms.Label();
+            this.btnIrCarrinho = new System.Windows.Forms.PictureBox();
+            this.BtnNintendoIcon = new System.Windows.Forms.PictureBox();
+            this.BtnExitNintendo = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.DgvJogosNintendo)).BeginInit();
             this.GrbCarrinhoNintendo.SuspendLayout();
             this.GrbCategoriaNintendo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnIrCarrinho)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BtnNintendoIcon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BtnExitNintendo)).BeginInit();
             this.SuspendLayout();
@@ -120,6 +122,41 @@
             this.CmbCategoriaNintendo.TabIndex = 0;
             this.CmbCategoriaNintendo.SelectedIndexChanged += new System.EventHandler(this.CmbCategoriaNintendo_SelectedIndexChanged);
             // 
+            // lblQtdCarrinho
+            // 
+            this.lblQtdCarrinho.AutoSize = true;
+            this.lblQtdCarrinho.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblQtdCarrinho.Font = new System.Drawing.Font("Microsoft Tai Le", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblQtdCarrinho.ForeColor = System.Drawing.Color.Red;
+            this.lblQtdCarrinho.Location = new System.Drawing.Point(361, 606);
+            this.lblQtdCarrinho.Name = "lblQtdCarrinho";
+            this.lblQtdCarrinho.Size = new System.Drawing.Size(21, 23);
+            this.lblQtdCarrinho.TabIndex = 25;
+            this.lblQtdCarrinho.Text = "0";
+            // 
+            // lblNItens
+            // 
+            this.lblNItens.AutoSize = true;
+            this.lblNItens.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblNItens.Font = new System.Drawing.Font("Microsoft Tai Le", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNItens.ForeColor = System.Drawing.Color.Red;
+            this.lblNItens.Location = new System.Drawing.Point(151, 606);
+            this.lblNItens.Name = "lblNItens";
+            this.lblNItens.Size = new System.Drawing.Size(210, 23);
+            this.lblNItens.TabIndex = 24;
+            this.lblNItens.Text = "Produtos no Carrinho:";
+            // 
+            // btnIrCarrinho
+            // 
+            this.btnIrCarrinho.Image = global::TROCGames.Properties.Resources.Nintendo;
+            this.btnIrCarrinho.Location = new System.Drawing.Point(3, 1);
+            this.btnIrCarrinho.Name = "btnIrCarrinho";
+            this.btnIrCarrinho.Size = new System.Drawing.Size(79, 66);
+            this.btnIrCarrinho.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnIrCarrinho.TabIndex = 26;
+            this.btnIrCarrinho.TabStop = false;
+            this.btnIrCarrinho.Click += new System.EventHandler(this.btnIrCarrinho_Click);
+            // 
             // BtnNintendoIcon
             // 
             this.BtnNintendoIcon.Image = global::TROCGames.Properties.Resources.nintendo_logo_1_1__1_;
@@ -141,36 +178,13 @@
             this.BtnExitNintendo.TabStop = false;
             this.BtnExitNintendo.Click += new System.EventHandler(this.BtnExitNintendo_Click);
             // 
-            // lblQtdCarrinho
-            // 
-            this.lblQtdCarrinho.AutoSize = true;
-            this.lblQtdCarrinho.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblQtdCarrinho.Font = new System.Drawing.Font("Microsoft Tai Le", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblQtdCarrinho.ForeColor = System.Drawing.Color.Red;
-            this.lblQtdCarrinho.Location = new System.Drawing.Point(442, 606);
-            this.lblQtdCarrinho.Name = "lblQtdCarrinho";
-            this.lblQtdCarrinho.Size = new System.Drawing.Size(21, 23);
-            this.lblQtdCarrinho.TabIndex = 25;
-            this.lblQtdCarrinho.Text = "0";
-            // 
-            // lblNItens
-            // 
-            this.lblNItens.AutoSize = true;
-            this.lblNItens.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblNItens.Font = new System.Drawing.Font("Microsoft Tai Le", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNItens.ForeColor = System.Drawing.Color.Red;
-            this.lblNItens.Location = new System.Drawing.Point(232, 606);
-            this.lblNItens.Name = "lblNItens";
-            this.lblNItens.Size = new System.Drawing.Size(210, 23);
-            this.lblNItens.TabIndex = 24;
-            this.lblNItens.Text = "Produtos no Carrinho:";
-            // 
             // Nintendo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(507, 638);
+            this.Controls.Add(this.btnIrCarrinho);
             this.Controls.Add(this.lblQtdCarrinho);
             this.Controls.Add(this.lblNItens);
             this.Controls.Add(this.DgvJogosNintendo);
@@ -182,9 +196,11 @@
             this.Name = "Nintendo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Nintendo";
+            this.Activated += new System.EventHandler(this.Nintendo_Activated);
             ((System.ComponentModel.ISupportInitialize)(this.DgvJogosNintendo)).EndInit();
             this.GrbCarrinhoNintendo.ResumeLayout(false);
             this.GrbCategoriaNintendo.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.btnIrCarrinho)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BtnNintendoIcon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BtnExitNintendo)).EndInit();
             this.ResumeLayout(false);
@@ -204,5 +220,6 @@
         private System.Windows.Forms.Button BtnAdicionarCarrinho;
         private System.Windows.Forms.Label lblQtdCarrinho;
         private System.Windows.Forms.Label lblNItens;
+        private System.Windows.Forms.PictureBox btnIrCarrinho;
     }
 }

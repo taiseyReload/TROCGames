@@ -35,12 +35,12 @@
             this.ChbPagamento = new System.Windows.Forms.CheckBox();
             this.LblValorTotal = new System.Windows.Forms.Label();
             this.GrbPagamento = new System.Windows.Forms.GroupBox();
-            this.BtnExit = new System.Windows.Forms.PictureBox();
             this.PbIconPagamento = new System.Windows.Forms.PictureBox();
+            this.BtnExit = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.DgvListaCarrinho)).BeginInit();
             this.GrbPagamento.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.BtnExit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PbIconPagamento)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BtnExit)).BeginInit();
             this.SuspendLayout();
             // 
             // DgvListaCarrinho
@@ -53,6 +53,7 @@
             this.DgvListaCarrinho.Size = new System.Drawing.Size(455, 304);
             this.DgvListaCarrinho.TabIndex = 2;
             this.DgvListaCarrinho.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvListaCarrinho_CellClick);
+            this.DgvListaCarrinho.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvListaCarrinho_CellContentClick);
             // 
             // BtnExcluir
             // 
@@ -60,7 +61,7 @@
             this.BtnExcluir.Enabled = false;
             this.BtnExcluir.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnExcluir.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnExcluir.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.BtnExcluir.ForeColor = System.Drawing.Color.White;
             this.BtnExcluir.Location = new System.Drawing.Point(217, 24);
             this.BtnExcluir.Name = "BtnExcluir";
             this.BtnExcluir.Size = new System.Drawing.Size(203, 35);
@@ -87,13 +88,14 @@
             this.BtnConfirmar.Enabled = false;
             this.BtnConfirmar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnConfirmar.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnConfirmar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.BtnConfirmar.ForeColor = System.Drawing.Color.White;
             this.BtnConfirmar.Location = new System.Drawing.Point(217, 69);
             this.BtnConfirmar.Name = "BtnConfirmar";
             this.BtnConfirmar.Size = new System.Drawing.Size(203, 44);
             this.BtnConfirmar.TabIndex = 13;
             this.BtnConfirmar.Text = "Confirmar";
             this.BtnConfirmar.UseVisualStyleBackColor = false;
+            this.BtnConfirmar.Click += new System.EventHandler(this.BtnConfirmar_Click);
             // 
             // ChbPagamento
             // 
@@ -106,17 +108,19 @@
             this.ChbPagamento.TabIndex = 12;
             this.ChbPagamento.Text = "PAGAMENTO RECEBIDO";
             this.ChbPagamento.UseVisualStyleBackColor = true;
+            this.ChbPagamento.CheckedChanged += new System.EventHandler(this.ChbPagamento_CheckedChanged);
             // 
             // LblValorTotal
             // 
             this.LblValorTotal.AutoSize = true;
-            this.LblValorTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblValorTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblValorTotal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.LblValorTotal.Location = new System.Drawing.Point(31, 52);
+            this.LblValorTotal.Location = new System.Drawing.Point(6, 59);
             this.LblValorTotal.Name = "LblValorTotal";
-            this.LblValorTotal.Size = new System.Drawing.Size(166, 46);
+            this.LblValorTotal.Size = new System.Drawing.Size(116, 31);
             this.LblValorTotal.TabIndex = 11;
             this.LblValorTotal.Text = "R$ 00,0";
+            this.LblValorTotal.Click += new System.EventHandler(this.LblValorTotal_Click);
             // 
             // GrbPagamento
             // 
@@ -133,6 +137,15 @@
             this.GrbPagamento.TabStop = false;
             this.GrbPagamento.Text = "PAGAMENTO";
             // 
+            // PbIconPagamento
+            // 
+            this.PbIconPagamento.Image = global::TROCGames.Properties.Resources.Prancheta_1__7_;
+            this.PbIconPagamento.Location = new System.Drawing.Point(173, -1);
+            this.PbIconPagamento.Name = "PbIconPagamento";
+            this.PbIconPagamento.Size = new System.Drawing.Size(163, 88);
+            this.PbIconPagamento.TabIndex = 17;
+            this.PbIconPagamento.TabStop = false;
+            // 
             // BtnExit
             // 
             this.BtnExit.Image = global::TROCGames.Properties.Resources.Prancheta_16;
@@ -143,15 +156,6 @@
             this.BtnExit.TabIndex = 16;
             this.BtnExit.TabStop = false;
             this.BtnExit.Click += new System.EventHandler(this.BtnExit_Click);
-            // 
-            // PbIconPagamento
-            // 
-            this.PbIconPagamento.Image = global::TROCGames.Properties.Resources.Prancheta_1__7_;
-            this.PbIconPagamento.Location = new System.Drawing.Point(173, -1);
-            this.PbIconPagamento.Name = "PbIconPagamento";
-            this.PbIconPagamento.Size = new System.Drawing.Size(163, 88);
-            this.PbIconPagamento.TabIndex = 17;
-            this.PbIconPagamento.TabStop = false;
             // 
             // Pagamento
             // 
@@ -171,8 +175,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.DgvListaCarrinho)).EndInit();
             this.GrbPagamento.ResumeLayout(false);
             this.GrbPagamento.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.BtnExit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PbIconPagamento)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BtnExit)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

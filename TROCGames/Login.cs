@@ -7,14 +7,34 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TROCGames.Classes;
+using TROCGames.Views;
 
 namespace TROCGames
 {
     public partial class Login : Form
     {
-        public Login()
+        // Atributos globais:
+        Classes.Carrinho carrinho = new Classes.Carrinho();
+        int idFicha;
+        public Login(int id)
         {
             InitializeComponent();
+            // Verificar se o usuário deseja recuperar o ID de um carrinho antigo ou criar um novo:
+           if (id == 0) 
+            { 
+            var f = carrinho.UltimaFicha().Rows[0][0];
+            idFicha = int.Parse(f.ToString());
+            Globals.idGlobal = idFicha;
+            lblNId.Text = Globals.idGlobal.ToString();
+            }
+           else
+            {
+                Globals.idGlobal = id;
+                lblNId.Text = Globals.idGlobal.ToString();
+                idFicha = id;
+            }
+
         }
 
         private void LblTitulo_Click(object sender, EventArgs e)
@@ -47,6 +67,12 @@ namespace TROCGames
 
         private void Login_Load(object sender, EventArgs e)
         {
+        }
+
+        private void btnIrCarrinho_Click(object sender, EventArgs e)
+        {
+            Views.Pagamento janela = new Views.Pagamento();
+            janela.Show();
         }
     }
 }

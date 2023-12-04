@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TROCGames.Classes;
 
 namespace TROCGames.Views
 {
@@ -14,8 +15,8 @@ namespace TROCGames.Views
     {
         // Atributos globais:
         int idSelecionado = 0;
-        int contador = 0;
         int idFicha = 0;
+        int totalCarrinho = Globals.qtdCarrinho;
         Classes.Produto produto = new Classes.Produto();
         Classes.Carrinho carrinho = new Classes.Carrinho();
         Classes.Categoria categoria = new Classes.Categoria();
@@ -31,10 +32,7 @@ namespace TROCGames.Views
 
             }
             DgvJogosXbox.DataSource = produto.ListarXbox();
-
-            // Gerar a ficha do usuário a partir do último id inserido:
-            var f = carrinho.UltimaFicha().Rows[0][0];
-            idFicha = int.Parse(f.ToString());
+            idFicha = Globals.idGlobal;
         }
 
         private void Xbox_Load(object sender, EventArgs e)
@@ -81,7 +79,7 @@ namespace TROCGames.Views
             Classes.Carrinho carrinho = new Classes.Carrinho();
             // Adicionar produtos no contador do carrinho:
             BtnAdicionarCarrinho.Enabled = false;
-            contador++;
+            Globals.qtdCarrinho++;
             // Obter a linha clicada:
             int linhaSelecionada = DgvJogosXbox.CurrentCell.RowIndex;
             // Armazenar os dados da linha seleciona em "linha" (tipo um vetor)
@@ -92,11 +90,11 @@ namespace TROCGames.Views
             carrinho.IdProdutos = (int)linha.Cells[0].Value;
             carrinho.AdicionarProduto();
             // Permitir clicar no carinho apenas se o contador estiver com pelo menos 1 produto:
-            if (contador > 0)
+            if (Globals.qtdCarrinho > 0)
             {
                 BtnPagarXbox.Enabled = true;
             }
-            lblQtdCarrinho.Text = contador.ToString();
+            lblQtdCarrinho.Text = Globals.qtdCarrinho.ToString();
         }
 
         private void DgvJogosXbox_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -113,6 +111,22 @@ namespace TROCGames.Views
 
             // Salvar o id do usuário na variavel global:
             idSelecionado = (int)linha.Cells[0].Value;
+        }
+
+        private void btnIrCarrinho_Click(object sender, EventArgs e)
+        {
+            Views.Pagamento janela = new Views.Pagamento();
+            janela.Show();
+        }
+
+        private void Xbox_Activated(object sender, EventArgs e)
+        {
+            lblQtdCarrinho.Text = Globals.qtdCarrinho.ToString();
+        }
+
+        private void DgvJogosXbox_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
